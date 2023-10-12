@@ -1,0 +1,9 @@
+[submodule "JOIntegration"]
+	path = JOIntegration
+	url = git@github.com:JakubOrsula/diplomka-jo-db-integration.git
+[submodule "VMMetricSpaceTechniquesImpl"]
+	path = VMMetricSpaceTechniquesImpl
+	url = git@github.com:JakubOrsula/VMMetricSpaceTechniquesImpl.git
+[submodule "VMGenericTools"]
+	path = VMGenericTools
+	url = git@github.com:JakubOrsula/VMGenericTools.git

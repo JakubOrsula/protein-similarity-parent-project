@@ -1,0 +1,21 @@
+version: '3'
+services:
+  db:
+    image: mariadb:latest
+    restart: "no"
+    environment:
+      MARIADB_ROOT_PASSWORD: password
+      MARIADB_USER: chain
+      MARIADB_PASSWORD: OneCha1n2RuleThem4ll
+      MARIADB_DATABASE: protein_chain_db
+    ports:
+      - "3306:3306"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: "no"
+    environment:
+      PMA_HOST: db
+      PMA_USER: username
+      PMA_PASSWORD: password
+    ports:
+      - "8080:80"

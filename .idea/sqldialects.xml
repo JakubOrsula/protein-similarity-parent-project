@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$USER_HOME$/Documents/pdbe_data/proteinChainMetadata_prod_02052023_backup.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/JOIntegration/src/main/resources/db/migration/V1__schema_from_prod_db.sql" dialect="MariaDB" />
+    <file url="PROJECT" dialect="MySQL" />
+  </component>
+</project>
