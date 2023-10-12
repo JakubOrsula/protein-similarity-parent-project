@@ -1,0 +1,22 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="App" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="ALTERNATIVE_JRE_PATH" value="openjdk-20" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <envs>
+      <env name="LD_LIBRARY_PATH" value="$USER_HOME$/Documents/src/gesamt_distance/build/distance" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.example.App" />
+    <module name="JOIntegration" />
+    <option name="PROGRAM_PARAMETERS" value="--run applySketches" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.example.services.entrypoints.selfchecks.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="db" run_configuration_type="docker-deploy" />
+    </method>
+  </configuration>
+</component>
