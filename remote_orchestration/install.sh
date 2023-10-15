@@ -17,6 +17,7 @@ sudo mysql_secure_installation
 INSTALLATION_LOCATION=/home/ubuntu/protein-search-deployment
 mkdir $INSTALLATION_LOCATION && cd $INSTALLATION_LOCATION
 
+# Download and install cpp dependencies
 mkdir cpp_dependencies && cd cpp_dependencies
 if [ -d "tbb" ]; then
     cd tbb
@@ -43,13 +44,15 @@ sudo make install
 
 cd $INSTALLATION_LOCATION
 
+
 # Download management solution
 mkdir managment-solution cd managment-solution
-wget -O JOIntegration-with-dependencies.jar https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/untagged-22bf72fdbead6b26d7fb/JOIntegration-1.0-SNAPSHOT-jar-with-dependencies.jar
+wget -O JOIntegration-with-dependencies.jar https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/2.06/JOIntegration-1.0-SNAPSHOT-jar-with-dependencies.jar
+wget -O run.properties https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/2.06/run.properties.example
 
 
-# install systemd service
-cp remote_orchestration.service /etc/systemd/system/remote_orchestration.service
+# Set up systemd service
+wget -O /etc/systemd/system/protein-search-mgmt.service https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/2.06/protein-search-mgmt.service
 systemctl daemon-reload
 systemctl enable protein-search-mgmt.service
 
@@ -57,13 +60,15 @@ systemctl enable protein-search-mgmt.service
 # Download messiff solution
 
 
-# chatgpt sudo cp remote_orchestration.service /etc/systemd/system/remote_orchestration.service
 
 # Instruct user to specify the configuration
 
 
 # ----- SEPARATE SCRIPT -----
 # Verify the configuration
-
-# register systemd hook to run at startup
-# chatgpt sudo systemctl enable remote_orchestration.service
+# run the loop:
+1. download pdbes
+2. unpack
+3. compute distances
+4. compute the bins for messiff - double check with mic if it is needed or it is just pivots
+5. restart webservice

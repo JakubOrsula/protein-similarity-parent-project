@@ -19,13 +19,13 @@ To keep the configuration files simple - i.e. without templating they assume the
 Run installation script using
 
 ```shell
-wget -O - https://raw.githubusercontent.com/.../install.sh | bash
+wget -O - https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/2.06/install.sh | bash
 ```
 
 or if you need curl
 
 ```shell
-curl -sSL https://raw.githubusercontent.com/.../install.sh | bash
+curl -sSL https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/2.06/install.sh | bash
 ```
 
 ### Configuration
