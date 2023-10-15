@@ -14,6 +14,10 @@ sudo apt-get install -y python3.8-venv
 sudo apt-get install -y mariadb-server
 sudo mysql_secure_installation
 
+INSTALLATION_LOCATION=/home/ubuntu/protein-search-deployment
+mkdir $INSTALLATION_LOCATION && cd $INSTALLATION_LOCATION
+
+mkdir cpp_dependencies && cd cpp_dependencies
 if [ -d "tbb" ]; then
     cd tbb
     git pull
@@ -27,8 +31,7 @@ cmake ..
 make -j
 sudo make install
 
-cd ../..
-
+cd $INSTALLATION_LOCATION/cpp_dependencies
 cd gesamt_distance || { git clone https://github.com/JakubOrsula/gesamt_distance.git && cd gesamt_distance; }
 git pull
 git checkout origin/master
@@ -38,14 +41,22 @@ cmake ..
 make -j
 sudo make install
 
-cd ../..
+cd $INSTALLATION_LOCATION
 
 # Download management solution
+mkdir managment-solution cd managment-solution
+wget -O JOIntegration-with-dependencies.jar https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/untagged-22bf72fdbead6b26d7fb/JOIntegration-1.0-SNAPSHOT-jar-with-dependencies.jar
+
+
+# install systemd service
+cp remote_orchestration.service /etc/systemd/system/remote_orchestration.service
+systemctl daemon-reload
+systemctl enable protein-search-mgmt.service
 
 
 # Download messiff solution
 
-# install systemd service
+
 # chatgpt sudo cp remote_orchestration.service /etc/systemd/system/remote_orchestration.service
 
 # Instruct user to specify the configuration
