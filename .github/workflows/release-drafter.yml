@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - VERSION
 
 jobs:
   create_draft_release:
@@ -24,7 +26,7 @@ jobs:
           draft: true
           prerelease: false
           fail_on_unmatched_files: true
-          release_name: Release ${{ steps.get_version.outputs.VERSION }}
+          name: Release ${{ steps.get_version.outputs.VERSION }}
           body_path: Release.txt
           tag_name: ${{ steps.get_version.outputs.VERSION }}
           files: |
