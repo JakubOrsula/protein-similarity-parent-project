@@ -3,11 +3,11 @@
     <option name="ALTERNATIVE_JRE_PATH" value="openjdk-20" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <envs>
-      <env name="LD_LIBRARY_PATH" value="$USER_HOME$/Documents/src/gesamt_distance/build/distance" />
+      <env name="LD_LIBRARY_PATH" value="$PROJECT_DIR$/JOIntegration/src/main/resources/lib" />
     </envs>
     <option name="MAIN_CLASS_NAME" value="com.example.App" />
     <module name="JOIntegration" />
-    <option name="PROGRAM_PARAMETERS" value="--run applySketches" />
+    <option name="PROGRAM_PARAMETERS" value="--run checkGesamtLibPresence" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="com.example.services.entrypoints.selfchecks.*" />
