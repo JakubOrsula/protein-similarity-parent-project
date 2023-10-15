@@ -2,6 +2,8 @@
 
 set -e
 set -x
+
+# Install dependencies
 sudo apt-get update -y
 sudo apt-get install -y openjdk-17-jdk
 sudo apt-get install -y cmake build-essential
@@ -38,4 +40,19 @@ sudo make install
 
 cd ../..
 
-mkdir migrations
+# Download management solution
+
+
+# Download messiff solution
+
+# install systemd service
+# chatgpt sudo cp remote_orchestration.service /etc/systemd/system/remote_orchestration.service
+
+# Instruct user to specify the configuration
+
+
+# ----- SEPARATE SCRIPT -----
+# Verify the configuration
+
+# register systemd hook to run at startup
+# chatgpt sudo systemctl enable remote_orchestration.service
