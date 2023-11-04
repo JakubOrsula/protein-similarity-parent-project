@@ -7,3 +7,6 @@
 [submodule "VMGenericTools"]
 	path = VMGenericTools
 	url = git@github.com:JakubOrsula/VMGenericTools.git
+[submodule "VMFSMetricSpace"]
+	path = VMFSMetricSpace
+	url = git@github.com:VladimirMic/VMFSMetricSpace.git
