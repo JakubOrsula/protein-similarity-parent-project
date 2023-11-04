@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JOIntegration" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/VMFSMetricSpace" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/VMGenericTools" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/VMMetricSpaceTechniquesImpl" vcs="Git" />
   </component>
