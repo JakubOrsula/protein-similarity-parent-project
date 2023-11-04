@@ -44,7 +44,7 @@ Project is shipped as _batteries included_ - ready to run out of the box.
 #### Gesamt library
 
 + the library is provided in the `resources/lib` folder
-+ the source code for the library can be found here: [github](https://github.com/JakubOrsula/gesamt_distance)
++ the source code for the library can be found here: [github](https://github.com/JakubOrsula/gesamt_distance/tree/jo-integration)
 + compiling the library for this project requires modification of native bindigs
 + these modifications are on branch `jo-integration` of the library
 + follow the instructions in the library's readme to compile the library, then copy the `libProteinDistance.so` binary to the resources folder
