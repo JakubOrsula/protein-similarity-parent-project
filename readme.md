@@ -1,5 +1,9 @@
 # Manager of updates to the searching database
 
+## Out of the box run on the remote
+
+Check [separate guide for remote deployment](./remote_orchestration/README.md).
+
 ## Build
 
 ```shell
@@ -53,15 +57,4 @@ Project is shipped as _batteries included_ - ready to run out of the box.
 
 ```shell
 rsync -av /home/jakub/git/school/diplomka/diplomka_impl/JOIntegration/target/JOIntegration-1.0-SNAPSHOT-jar-with-dependencies.jar protein-jo:/home/ubuntu/protein-search/bin/JOIntegration-1.0-SNAPSHOT-jar-with-dependencies.jar
-```
-
-If you need to regenerate csv pivot files use and replace `,` with `;`
-```mysql
-SELECT
-CONCAT('"', pivot1, '"') AS quoted_pivot1,
-CONCAT('"', pivot2, '"') AS quoted_pivot2
-FROM
-pivotPairsFor64pSketches
-ORDER BY
-sketchBitOrder;
 ```
