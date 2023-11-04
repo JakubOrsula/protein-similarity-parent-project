@@ -7,7 +7,7 @@
     </envs>
     <option name="MAIN_CLASS_NAME" value="com.example.App" />
     <module name="JOIntegration" />
-    <option name="PROGRAM_PARAMETERS" value="--run generatePivotPairs" />
+    <option name="PROGRAM_PARAMETERS" value="--run groundTruth --dry-run" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="com.example.services.entrypoints.selfchecks.*" />

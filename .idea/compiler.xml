@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="VMMetricSpaceTechniquesImpl" />
         <module name="VMGenericTools" />
+        <module name="VMFSMetricSpace" />
         <module name="JOIntegration" />
       </profile>
     </annotationProcessing>

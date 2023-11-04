@@ -12,7 +12,8 @@
     <modules>
         <module>VMGenericTools</module>
         <module>VMMetricSpaceTechniquesImpl</module>
-      <module>JOIntegration</module>
+        <module>JOIntegration</module>
+        <module>VMFSMetricSpace</module>
   </modules>
 
     <dependencies>
