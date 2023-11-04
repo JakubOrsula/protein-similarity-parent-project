@@ -41,6 +41,13 @@ cd build
 cmake ..
 make -j
 sudo make install
+cd ..
+rm -rf build
+git checkout origin/jo-integration
+mkdir build
+cmake ..
+make -j
+# note no install - library version for jo-integration is not needed system wide
 
 cd $INSTALLATION_LOCATION
 
