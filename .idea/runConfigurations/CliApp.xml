@@ -1,13 +1,13 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="App" type="Application" factoryName="Application" nameIsGenerated="true">
+  <configuration default="false" name="CliApp" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="ALTERNATIVE_JRE_PATH" value="openjdk-20" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <envs>
       <env name="LD_LIBRARY_PATH" value="$PROJECT_DIR$/JOIntegration/src/main/resources/lib" />
     </envs>
-    <option name="MAIN_CLASS_NAME" value="com.example.App" />
+    <option name="MAIN_CLASS_NAME" value="com.example.CliApp" />
     <module name="JOIntegration" />
-    <option name="PROGRAM_PARAMETERS" value="--run groundTruth --dry-run" />
+    <option name="PROGRAM_PARAMETERS" value="--run updateDataset --dry-run" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="com.example.services.entrypoints.selfchecks.*" />
