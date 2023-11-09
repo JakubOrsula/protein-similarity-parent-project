@@ -18,7 +18,7 @@ INSTALLATION_LOCATION=/home/ubuntu/protein-search-deployment
 mkdir $INSTALLATION_LOCATION && cd $INSTALLATION_LOCATION
 
 # Download and install cpp dependencies
-mkdir cpp_dependencies && cd cpp_dependencies
+mkdir dependencies && cd dependencies
 if [ -d "tbb" ]; then
     cd tbb
     git pull
@@ -32,7 +32,7 @@ cmake ..
 make -j
 sudo make install
 
-cd $INSTALLATION_LOCATION/cpp_dependencies
+cd $INSTALLATION_LOCATION/dependencies
 cd gesamt_distance || { git clone https://github.com/JakubOrsula/gesamt_distance.git && cd gesamt_distance; }
 git pull
 git checkout origin/master
