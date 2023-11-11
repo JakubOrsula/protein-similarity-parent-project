@@ -75,7 +75,7 @@ cd $INSTALLATION_LOCATION
 wget -O JOIntegration-with-dependencies.jar https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/JOIntegration-1.0-SNAPSHOT-jar-with-dependencies.jar
 wget -O run.properties https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/run.properties.example
 wget -O update.sh https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/update.sh
-
+mkdir secondaryFiltering # for secondaryFiltering results
 
 # Set up systemd service
 wget -O /etc/systemd/system/protein-search-mgmt.service https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/protein-search-mgmt.service
@@ -84,6 +84,11 @@ systemctl enable protein-search-mgmt.service
 
 
 # Download messiff solution
+cd $INSTALLATION_LOCATION/dependencies
+wget -O release.zip https://github.com/JakubOrsula/mics-proteins/releases/download/"$SOLUTION_VERSION"/release.zip
+unzip release.zip
+rm -rf release.zip
+wget -O proteins.jar https://github.com/JakubOrsula/mics-proteins/releases/download/"$SOLUTION_VERSION"/proteins.jar
 
 
 # Download python solution
