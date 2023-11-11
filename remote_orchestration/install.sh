@@ -14,7 +14,26 @@ sudo apt-get install -y python3.8-venv
 sudo apt-get install -y mariadb-server
 sudo mysql_secure_installation
 
-INSTALLATION_LOCATION=/home/ubuntu/protein-search-deployment
+SOLUTION_VERSION=$1
+PROTEINS_VERSION=$2
+
+# Check if the first argument is empty
+if [ -z "$SOLUTION_VERSION" ]; then
+    echo "Error: SOLUTION_VERSION argument not provided."
+    exit 1
+fi
+
+# Check if the second argument is empty
+if [ -z "$PROTEINS_VERSION" ]; then
+    echo "Error: PROTEINS_VERSION argument not provided."
+    exit 1
+fi
+
+# Continue with the rest of the script if both arguments are present
+echo "SOLUTION_VERSION: $SOLUTION_VERSION"
+echo "PROTEINS_VERSION: $PROTEINS_VERSION"
+
+INSTALLATION_LOCATION=$(pwd)/protein-search-deployment
 mkdir $INSTALLATION_LOCATION && cd $INSTALLATION_LOCATION
 
 # Download and install cpp dependencies
@@ -54,12 +73,13 @@ cd $INSTALLATION_LOCATION
 
 # Download management solution
 mkdir managment-solution cd managment-solution
-wget -O JOIntegration-with-dependencies.jar https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/2.06/JOIntegration-1.0-SNAPSHOT-jar-with-dependencies.jar
-wget -O run.properties https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/2.06/run.properties.example
+wget -O JOIntegration-with-dependencies.jar https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/JOIntegration-1.0-SNAPSHOT-jar-with-dependencies.jar
+wget -O run.properties https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/run.properties.example
+wget -O update.sh https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/update.sh
 
 
 # Set up systemd service
-wget -O /etc/systemd/system/protein-search-mgmt.service https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/2.06/protein-search-mgmt.service
+wget -O /etc/systemd/system/protein-search-mgmt.service https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/protein-search-mgmt.service
 systemctl daemon-reload
 systemctl enable protein-search-mgmt.service
 

@@ -16,17 +16,20 @@ To keep the configuration files simple - i.e. without templating they assume the
 
 ## Installation
 
+You will need to know which version of the solution you want to install.
+Latest is a recommended option.
+Grab the version number from:
+1. [releases](https://github.com/JakubOrsula/protein-similarity-parent-project/releases)
+2. [proteins project releases](https://github.com/JakubOrsula/mics-proteins/releases)
+
 Run installation script using
 
 ```shell
-wget -O - https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/2.06/install.sh | bash
+wget -O install.sh https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/2.06/install.sh
+chmod u+x install.sh
+./install.sh <release version of this project> <release version of proteins project>
 ```
 
-or if you need curl
-
-```shell
-curl -sSL https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/2.06/install.sh | bash
-```
 
 ### Configuration
 
