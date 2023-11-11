@@ -66,6 +66,7 @@ systemctl enable protein-search-mgmt.service
 
 # Download messiff solution
 
+
 # Download python solution
 git clone https://github.com/JakubOrsula/ProteinSearch
 cd ProteinSearch
@@ -74,14 +75,7 @@ source venv/bin/activate
 sudo apt-get install -y apache2-dev
 pip install -r requirements.txt
 
-# Instruct user to specify the configuration
-
-
-# ----- SEPARATE SCRIPT -----
-# Verify the configuration
-# run the loop:
-1. download pdbes
-2. unpack
-3. compute distances
-4. compute the bins for messiff - double check with mic if it is needed or it is just pivots
-5. restart webservice
+# Instruct user to specify the configuration and start the service
+echo "Please edit the run.properties configuration file"
+echo "and start the service with 'sudo systemctl start protein-search-mgmt.service'"
+echo "reboot is recommended to ensure the service starts on boot"
