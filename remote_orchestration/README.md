@@ -19,8 +19,8 @@ To keep the configuration files simple - i.e. without templating they assume the
 You will need to know which version of the solution you want to install.
 Latest is a recommended option.
 Grab the version number from:
-1. [releases](https://github.com/JakubOrsula/protein-similarity-parent-project/releases)
-2. [proteins project releases](https://github.com/JakubOrsula/mics-proteins/releases)
+1. [releases](https://github.com/JakubOrsula/protein-similarity-parent-project/releases/latest)
+2. [proteins project releases](https://github.com/JakubOrsula/protein-similarity-parent-project/releases/latest)
 
 Run installation script using
 
