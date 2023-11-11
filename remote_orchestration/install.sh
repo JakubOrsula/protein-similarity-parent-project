@@ -72,7 +72,6 @@ cd $INSTALLATION_LOCATION
 
 
 # Download management solution
-mkdir managment-solution cd managment-solution
 wget -O JOIntegration-with-dependencies.jar https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/JOIntegration-1.0-SNAPSHOT-jar-with-dependencies.jar
 wget -O run.properties https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/run.properties.example
 wget -O update.sh https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/update.sh
@@ -88,6 +87,8 @@ systemctl enable protein-search-mgmt.service
 
 
 # Download python solution
+cd $INSTALLATION_LOCATION/dependencies
+mdkir tmpfiles
 git clone https://github.com/JakubOrsula/ProteinSearch
 cd ProteinSearch
 python3 -m venv venv
