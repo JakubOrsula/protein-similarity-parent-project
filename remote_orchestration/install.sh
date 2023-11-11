@@ -66,7 +66,13 @@ systemctl enable protein-search-mgmt.service
 
 # Download messiff solution
 
-
+# Download python solution
+git clone https://github.com/JakubOrsula/ProteinSearch
+cd ProteinSearch
+python3 -m venv venv
+source venv/bin/activate
+sudo apt-get install -y apache2-dev
+pip install -r requirements.txt
 
 # Instruct user to specify the configuration
 
