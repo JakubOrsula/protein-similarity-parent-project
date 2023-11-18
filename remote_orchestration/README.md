@@ -25,9 +25,12 @@ Grab the version number from:
 Run installation script using
 
 ```shell
-wget -O install.sh https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/2.06/install.sh
+SOLUTION_VERSION=3.003
+PROTEINS_VERSION=0.24
+mkdir protein-search-deployment && cd protein-search-deployment
+wget -O install.sh "https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/$SOLUTION_VERSION/install.sh"
 chmod u+x install.sh
-./install.sh <release version of this project> <release version of proteins project>
+./install.sh $SOLUTION_VERSION $PROTEINS_VERSION
 ```
 
 

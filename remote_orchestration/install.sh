@@ -3,17 +3,6 @@
 set -e
 set -x
 
-# Install dependencies
-sudo apt-get update -y
-sudo apt-get install -y openjdk-17-jdk
-sudo apt-get install -y cmake build-essential
-sudo apt-get install -y libz-dev
-sudo apt-get install -y python3-pybind11
-sudo apt-get install -y python3-dev
-sudo apt-get install -y python3.8-venv
-sudo apt-get install -y mariadb-server
-sudo mysql_secure_installation
-
 SOLUTION_VERSION=$1
 PROTEINS_VERSION=$2
 
@@ -32,6 +21,21 @@ fi
 # Continue with the rest of the script if both arguments are present
 echo "SOLUTION_VERSION: $SOLUTION_VERSION"
 echo "PROTEINS_VERSION: $PROTEINS_VERSION"
+
+# Install dependencies
+sudo apt-get update -y
+sudo apt-get install -y openjdk-17-jdk
+sudo apt-get install -y cmake build-essential
+sudo apt-get install -y libz-dev
+sudo apt-get install -y python3-pybind11
+sudo apt-get install -y python3-dev
+sudo apt-get install -y python3.8-venv
+sudo apt-get install -y mariadb-server
+sudo mysql_secure_installation
+
+echo '# Set JDK installation directory according to selected Java compiler' | sudo tee /etc/profile.d/java_home.sh
+echo 'export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")' | sudo tee -a /etc/profile.d/java_home.sh
+source /etc/profile.d/java_home.sh
 
 INSTALLATION_LOCATION=$(pwd)/protein-search-deployment
 mkdir $INSTALLATION_LOCATION && cd $INSTALLATION_LOCATION
@@ -53,8 +57,8 @@ sudo make install
 
 cd $INSTALLATION_LOCATION/dependencies
 cd gesamt_distance || { git clone https://github.com/JakubOrsula/gesamt_distance.git && cd gesamt_distance; }
+git checkout master
 git pull
-git checkout origin/master
 mkdir -p build
 cd build
 cmake ..
@@ -62,7 +66,8 @@ make -j
 sudo make install
 cd ..
 rm -rf build
-git checkout origin/jo-integration
+git checkout jo-integration
+git pull
 mkdir build
 cmake ..
 make -j
