@@ -49,8 +49,7 @@ echo '# Set JDK installation directory according to selected Java compiler' | su
 echo 'export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")' | sudo tee -a /etc/profile.d/java_home.sh
 source /etc/profile.d/java_home.sh
 
-INSTALLATION_LOCATION=$(pwd)/protein-search-deployment
-mkdir $INSTALLATION_LOCATION && cd $INSTALLATION_LOCATION
+INSTALLATION_LOCATION=$(pwd)
 
 # Download and install cpp dependencies
 mkdir dependencies && cd dependencies
@@ -86,16 +85,15 @@ make -j
 
 cd $INSTALLATION_LOCATION
 
-
 # Download management solution
 wget -O JOIntegration-with-dependencies.jar https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/JOIntegration-1.0-SNAPSHOT-jar-with-dependencies.jar
 wget -O run.properties https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/run.properties.example
 mkdir secondaryFiltering # for secondaryFiltering results
 
 # Set up systemd service
-wget -O /etc/systemd/system/protein-search-mgmt.service https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/protein-search-mgmt.service
-systemctl daemon-reload
-systemctl enable protein-search-mgmt.service
+sudo wget -O /etc/systemd/system/protein-search-mgmt.service https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/protein-search-mgmt.service
+sudo systemctl daemon-reload
+sudo systemctl enable protein-search-mgmt.service
 
 
 # Download messiff solution
