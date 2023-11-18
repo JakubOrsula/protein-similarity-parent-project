@@ -34,7 +34,13 @@ sudo apt-get install -y libz-dev
 sudo apt-get install -y python3-pybind11
 sudo apt-get install -y python3-dev
 sudo apt-get install -y python3.8-venv
+sudo apt-get install -y gcc libpq-dev
+sudo apt-get install -y python3-pip
+sudo apt-get install -y python3-wheel
+pip3 install wheel
 sudo apt-get install -y mariadb-server
+sudo apt-get install -y libmariadb3
+sudo apt-get install -y libmariadb-dev
 
 # Check if the .mysql_setup_done file exists
 if [ ! -f ~/.mysql_setup_done ]; then
@@ -114,6 +120,9 @@ python3 -m venv venv
 source venv/bin/activate
 sudo apt-get install -y apache2-dev
 pip install -r requirements.txt
+deactivate
+
+cd $INSTALLATION_LOCATION
 
 # Instruct user to specify the configuration and start the service
 echo "Please edit the run.properties configuration file"
