@@ -44,6 +44,8 @@ sudo apt-get install -y libmariadb-dev
 
 # Check if the .mysql_setup_done file exists
 if [ ! -f ~/.mysql_setup_done ]; then
+    echo "MySQL secure installation not completed in a previous run. Starting..."
+    echo "You will be aksed to set up root password - we recommend setting it to 'password' as it is the default in the solution.
     sudo mysql_secure_installation
 
     touch ~/.mysql_setup_done
