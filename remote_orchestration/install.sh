@@ -27,6 +27,7 @@ echo "PROTEINS_VERSION: $PROTEINS_VERSION"
 
 # Install dependencies
 sudo apt-get update -y
+sudo apt-get install -y unzip
 sudo apt-get install -y openjdk-17-jdk
 sudo apt-get install -y cmake build-essential
 sudo apt-get install -y libz-dev
@@ -98,15 +99,15 @@ sudo systemctl enable protein-search-mgmt.service
 
 # Download messiff solution
 cd $INSTALLATION_LOCATION/dependencies
-wget -O release.zip https://github.com/JakubOrsula/mics-proteins/releases/download/"$SOLUTION_VERSION"/release.zip
+wget -O release.zip https://github.com/JakubOrsula/mics-proteins/releases/download/"$PROTEINS_VERSION"/release.zip
 unzip release.zip
 rm -rf release.zip
-wget -O proteins.jar https://github.com/JakubOrsula/mics-proteins/releases/download/"$SOLUTION_VERSION"/proteins.jar
+wget -O proteins.jar https://github.com/JakubOrsula/mics-proteins/releases/download/"$PROTEINS_VERSION"/proteins.jar
 
 
 # Download python solution
 cd $INSTALLATION_LOCATION/dependencies
-mdkir tmpfiles
+mkdir tmpfiles
 git clone https://github.com/JakubOrsula/ProteinSearch
 cd ProteinSearch
 python3 -m venv venv
