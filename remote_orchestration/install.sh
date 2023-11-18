@@ -6,6 +6,9 @@ set -x
 SOLUTION_VERSION=$1
 PROTEINS_VERSION=$2
 
+# get update script for future use
+wget -O update.sh https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/update.sh
+
 # Check if the first argument is empty
 if [ -z "$SOLUTION_VERSION" ]; then
     echo "Error: SOLUTION_VERSION argument not provided."
@@ -31,7 +34,16 @@ sudo apt-get install -y python3-pybind11
 sudo apt-get install -y python3-dev
 sudo apt-get install -y python3.8-venv
 sudo apt-get install -y mariadb-server
-sudo mysql_secure_installation
+
+# Check if the .mysql_setup_done file exists
+if [ ! -f ~/.mysql_setup_done ]; then
+    sudo mysql_secure_installation
+
+    touch ~/.mysql_setup_done
+    echo "MySQL secure installation completed and marker file created."
+else
+    echo "MySQL secure installation already completed in a previous run."
+fi
 
 echo '# Set JDK installation directory according to selected Java compiler' | sudo tee /etc/profile.d/java_home.sh
 echo 'export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")' | sudo tee -a /etc/profile.d/java_home.sh
@@ -59,8 +71,7 @@ cd $INSTALLATION_LOCATION/dependencies
 cd gesamt_distance || { git clone https://github.com/JakubOrsula/gesamt_distance.git && cd gesamt_distance; }
 git checkout master
 git pull
-mkdir -p build
-cd build
+mkdir -p build && cd build
 cmake ..
 make -j
 sudo make install
@@ -68,7 +79,7 @@ cd ..
 rm -rf build
 git checkout jo-integration
 git pull
-mkdir build
+mkdir build && cd build
 cmake ..
 make -j
 # note no install - library version for jo-integration is not needed system wide
@@ -79,7 +90,6 @@ cd $INSTALLATION_LOCATION
 # Download management solution
 wget -O JOIntegration-with-dependencies.jar https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/JOIntegration-1.0-SNAPSHOT-jar-with-dependencies.jar
 wget -O run.properties https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/run.properties.example
-wget -O update.sh https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/update.sh
 mkdir secondaryFiltering # for secondaryFiltering results
 
 # Set up systemd service
