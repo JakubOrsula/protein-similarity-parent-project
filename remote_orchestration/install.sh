@@ -110,6 +110,7 @@ sudo systemctl enable protein-search-mgmt.service
 # Download messiff solution
 cd $INSTALLATION_LOCATION/dependencies
 wget -O release.zip https://github.com/JakubOrsula/mics-proteins/releases/download/"$PROTEINS_VERSION"/release.zip
+mkdir mics-proteins && cd mics-proteins
 unzip release.zip
 rm -rf release.zip
 wget -O proteins.jar https://github.com/JakubOrsula/mics-proteins/releases/download/"$PROTEINS_VERSION"/proteins.jar
