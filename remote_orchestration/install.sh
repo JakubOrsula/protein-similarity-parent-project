@@ -113,6 +113,9 @@ mkdir mics-proteins && cd mics-proteins
 wget -O release.zip https://github.com/JakubOrsula/mics-proteins/releases/download/"$PROTEINS_VERSION"/release.zip
 unzip release.zip
 rm -rf release.zip
+cp -r jars ppp_codes/
+cp -r jars sequential_sketches/
+rm -rf jars
 cd $INSTALLATION_LOCATION/dependencies
 wget -O proteins.jar https://github.com/JakubOrsula/mics-proteins/releases/download/"$PROTEINS_VERSION"/proteins.jar
 
@@ -122,9 +125,11 @@ cd $INSTALLATION_LOCATION/dependencies
 mkdir tmpfiles
 git clone https://github.com/JakubOrsula/ProteinSearch
 cd ProteinSearch
-python3 -m venv venv
+python3 -m venv venv --system-site-packages
+echo 'export PYTHONPATH="$PYTHONPATH:/usr/local/lib"' >> venv/bin/activate
 source venv/bin/activate
 sudo apt-get install -y apache2-dev
+pip install -r requirements.txt
 pip install -r requirements.txt
 deactivate
 
