@@ -45,7 +45,6 @@ jobs:
           tag_name: ${{ steps.get_version.outputs.VERSION }}
           files: |
             ./remote_orchestration/install.sh
-            ./remote_orchestration/update.sh
             ./remote_orchestration/protein-search-mgmt.service
             ./JOIntegration/target/JOIntegration-1.0-SNAPSHOT-jar-with-dependencies.jar
             ./JOIntegration/src/main/resources/run.properties.example

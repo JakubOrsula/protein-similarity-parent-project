@@ -3,11 +3,12 @@
 set -e
 set -x
 
+touch run.properties
+cp run.properties run.properties.old
+
 SOLUTION_VERSION=$1
 PROTEINS_VERSION=$2
 
-# get update script for future use
-wget -O update.sh https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/update.sh
 
 # Check if the first argument is empty
 if [ -z "$SOLUTION_VERSION" ]; then
@@ -45,7 +46,7 @@ sudo apt-get install -y libmariadb-dev
 # Check if the .mysql_setup_done file exists
 if [ ! -f ~/.mysql_setup_done ]; then
     echo "MySQL secure installation not completed in a previous run. Starting..."
-    echo "You will be aksed to set up root password - we recommend setting it to 'password' as it is the default in the solution.
+    echo "You will be aksed to set up root password - we recommend setting it to 'password' as it is the default in the solution."
     sudo mysql_secure_installation
 
     touch ~/.mysql_setup_done
@@ -60,7 +61,8 @@ source /etc/profile.d/java_home.sh
 
 INSTALLATION_LOCATION=$(pwd)
 
-# Download and install cpp dependencies
+# Download and install dependencies
+rm -rf dependencies
 mkdir dependencies && cd dependencies
 if [ -d "tbb" ]; then
     cd tbb
@@ -97,7 +99,7 @@ cd $INSTALLATION_LOCATION
 # Download management solution
 wget -O JOIntegration-with-dependencies.jar https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/JOIntegration-1.0-SNAPSHOT-jar-with-dependencies.jar
 wget -O run.properties https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/run.properties.example
-mkdir secondaryFiltering # for secondaryFiltering results
+mkdir -p secondaryFiltering # for secondaryFiltering results
 
 # Set up systemd service
 sudo wget -O /etc/systemd/system/protein-search-mgmt.service https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/protein-search-mgmt.service
