@@ -23,11 +23,8 @@ Project is shipped as _batteries included_ - ready to run out of the box.
 2. the database is not automatically set up and is clunky at the moment
    + you need to manually apply the first migration
    + copy the data for all tables
-3. the gesamt library is provided to you in resources `lib` folder
-   + you need to set `LD_LIBRARY_PATH` to the path to the resources folder
-   + example path: `$(pwd)/src/main/resources/lib`
 3. make sure that the [gesamt library](https://github.com/krab1k/gesamt_distance) is compiled and you know the path to the binary
-   + use the path to set `LD_LIBRARY_PATH` environment variable
+   + use the path to set `export LD_LIBRARY_PATH=` environment variable
    + example path: `/home/jakub/Documents/src/gesamt_distance/build/distance`
 4. run the program
    + if you want to limit number of system threads used use  `-Djava.util.concurrent.ForkJoinPool.common.parallelism=8` with desired number of threads

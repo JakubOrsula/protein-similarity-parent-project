@@ -5,8 +5,8 @@ After=network.target
 [Service]
 WorkingDirectory=/home/ubuntu/protein-search-deployment
 User=ubuntu
-Environment="LD_LIBRARY_PATH=/home/jakub/git/school/diplomka/diplomka_impl/JOIntegration/src/main/resources/lib"
-ExecStart=/usr/bin/java -jar JOIntegration-with-dependencies.jar --run checkGesamtLibPresence
+Environment="LD_LIBRARY_PATH=/home/ubuntu/protein-search-deployment/dependencies/gesamt_distance/build/distance"
+ExecStart=/usr/bin/java -cp JOIntegration-with-dependencies.jar com.example.DaemonApp
 SuccessExitStatus=143
 Restart=on-failure
 RestartSec=10
