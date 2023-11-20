@@ -42,6 +42,8 @@ pip3 install wheel
 sudo apt-get install -y mariadb-server
 sudo apt-get install -y libmariadb3
 sudo apt-get install -y libmariadb-dev
+sudo apt-get install -y pymol # webapp visualizations
+sudo apt-get install -y imagemagick # webapp visualizations
 
 # Check if the .mysql_setup_done file exists
 if [ ! -f ~/.mysql_setup_done ]; then
