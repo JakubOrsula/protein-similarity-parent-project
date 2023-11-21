@@ -1,10 +1,25 @@
 #!/bin/bash
 
-set -e
 set -x
 
+INSTALLATION_LOCATION=$(pwd)
+
+# attempt to stop messiffs
+cd dependencies/mics-proteins/ppp_codes
+./http.sh stop
+cd "$INSTALLATION_LOCATION"/dependencies/mics-proteins/sequential_sketches
+./http_64pivots.sh stop
+./http_512pivots.sh stop
+cd "$INSTALLATION_LOCATION"
+
+# todo systemctl stop protein-search-mgmt.service
+
+set -e
+
+# backup configuration file
 touch run.properties
 cp run.properties run.properties.old
+
 
 SOLUTION_VERSION=$1
 PROTEINS_VERSION=$2
@@ -44,6 +59,9 @@ sudo apt-get install -y libmariadb3
 sudo apt-get install -y libmariadb-dev
 sudo apt-get install -y pymol # webapp visualizations
 sudo apt-get install -y imagemagick # webapp visualizations
+sudo apt-get install -y ghostscript # webapp visualizations
+sudo apt-get install -y fonts-freefont-otf # webapp visualizations
+
 
 # Check if the .mysql_setup_done file exists
 if [ ! -f ~/.mysql_setup_done ]; then
