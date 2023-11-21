@@ -20,9 +20,13 @@ set -e
 touch run.properties
 cp run.properties run.properties.old
 
-
-SOLUTION_VERSION=$1
-PROTEINS_VERSION=$2
+if [ "$1" == "latest" ]; then
+  SOLUTION_VERSION=$(curl -s https://raw.githubusercontent.com/JakubOrsula/protein-similarity-parent-project/master/VERSION)
+  PROTEINS_VERSION=$(curl -s https://raw.githubusercontent.com/JakubOrsula/mics-proteins/main/VERSION)
+else
+  SOLUTION_VERSION=$1
+  PROTEINS_VERSION=$2
+fi
 
 
 # Check if the first argument is empty
@@ -40,6 +44,8 @@ fi
 # Continue with the rest of the script if both arguments are present
 echo "SOLUTION_VERSION: $SOLUTION_VERSION"
 echo "PROTEINS_VERSION: $PROTEINS_VERSION"
+
+sleep 5
 
 # Install dependencies
 sudo apt-get update -y
