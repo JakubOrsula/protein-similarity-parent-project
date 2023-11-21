@@ -20,14 +20,6 @@ set -e
 touch run.properties
 cp run.properties run.properties.old
 
-if [ "$1" == "latest" ]; then
-  SOLUTION_VERSION=$(curl -s https://raw.githubusercontent.com/JakubOrsula/protein-similarity-parent-project/master/VERSION)
-  PROTEINS_VERSION=$(curl -s https://raw.githubusercontent.com/JakubOrsula/mics-proteins/main/VERSION)
-else
-  SOLUTION_VERSION=$1
-  PROTEINS_VERSION=$2
-fi
-
 
 # Check if the first argument is empty
 if [ -z "$SOLUTION_VERSION" ]; then
@@ -160,6 +152,10 @@ pip install -r requirements.txt
 deactivate
 
 cd $INSTALLATION_LOCATION
+
+echo '========================='
+echo 'Installation successful!'
+echo '========================='
 
 # Instruct user to specify the configuration and start the service
 echo "Please edit the run.properties configuration file"
