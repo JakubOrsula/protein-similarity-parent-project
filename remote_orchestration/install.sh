@@ -20,7 +20,8 @@ set -e
 touch run.properties
 cp run.properties run.properties.old
 
-
+SOLUTION_VERSION=$1
+PROTEINS_VERSION=$2
 # Check if the first argument is empty
 if [ -z "$SOLUTION_VERSION" ]; then
     echo "Error: SOLUTION_VERSION argument not provided."
