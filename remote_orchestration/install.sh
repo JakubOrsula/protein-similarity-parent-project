@@ -38,6 +38,9 @@ fi
 echo "SOLUTION_VERSION: $SOLUTION_VERSION"
 echo "PROTEINS_VERSION: $PROTEINS_VERSION"
 
+echo "SOLUTION_VERSION: $SOLUTION_VERSION" > version.txt
+echo "PROTEINS_VERSION: $PROTEINS_VERSION" >> version.txt
+
 sleep 5
 
 # Install dependencies
