@@ -7,10 +7,10 @@
     </envs>
     <option name="MAIN_CLASS_NAME" value="com.example.CliApp" />
     <module name="JOIntegration" />
-    <option name="PROGRAM_PARAMETERS" value="--run secondaryFiltering --dry-run" />
+    <option name="PROGRAM_PARAMETERS" value="--run computeDistances --dry-run" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="com.example.services.entrypoints.selfchecks.*" />
+        <option name="PATTERN" value="com.example.services.entrypoints.selfChecks.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
