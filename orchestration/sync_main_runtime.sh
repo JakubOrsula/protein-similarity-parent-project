@@ -1,1 +1,0 @@
-rsync -av /home/jakub/git/school/diplomka/diplomka_impl/JOIntegration/target/JOIntegration-1.0-SNAPSHOT-jar-with-dependencies.jar protein-jo:/home/ubuntu/protein-search/bin/JOIntegration-1.0-SNAPSHOT-jar-with-dependencies.jar

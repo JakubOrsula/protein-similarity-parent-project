@@ -157,6 +157,8 @@ deactivate
 
 cd $INSTALLATION_LOCATION
 
+sudo systemctl restart protein-search-mgmt.service
+
 echo '========================='
 echo 'Installation successful!'
 echo '========================='
