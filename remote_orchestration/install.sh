@@ -150,6 +150,9 @@ mkdir tmpfiles
 git clone https://github.com/JakubOrsula/ProteinSearch
 cd ProteinSearch
 python3 -m venv venv --system-site-packages
+
+# add path to gesamt lib to PYTHONPATH
+# if you are changing this do not forget to change it in protein-search-web.service as well
 echo 'export PYTHONPATH="$PYTHONPATH:/usr/local/lib"' >> venv/bin/activate
 source venv/bin/activate
 sudo apt-get install -y apache2-dev
@@ -160,6 +163,7 @@ deactivate
 cd $INSTALLATION_LOCATION
 
 sudo systemctl restart protein-search-mgmt.service
+sudo systemctl restart protein-search-web.service
 
 echo '========================='
 echo 'Installation successful!'
