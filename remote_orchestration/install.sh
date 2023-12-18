@@ -123,10 +123,12 @@ wget -O JOIntegration-with-dependencies.jar https://github.com/JakubOrsula/prote
 wget -O run.properties https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/run.properties.example
 mkdir -p secondaryFiltering # for secondaryFiltering results
 
-# Set up systemd service
+# Set up systemd services
 sudo wget -O /etc/systemd/system/protein-search-mgmt.service https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/protein-search-mgmt.service
+sudo wget -O /etc/systemd/system/protein-search-web.service https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/"$SOLUTION_VERSION"/protein-search-web.service
 sudo systemctl daemon-reload
 sudo systemctl enable protein-search-mgmt.service
+sudo systemctl enable protein-search-web.service
 
 
 # Download messiff solution

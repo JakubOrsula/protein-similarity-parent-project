@@ -46,6 +46,7 @@ jobs:
           files: |
             ./remote_orchestration/install.sh
             ./remote_orchestration/protein-search-mgmt.service
+            ./remote_orchestration/protein-search-web.service
             ./JOIntegration/target/JOIntegration-1.0-SNAPSHOT-jar-with-dependencies.jar
             ./JOIntegration/src/main/resources/run.properties.example
             
