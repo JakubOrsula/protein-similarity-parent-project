@@ -143,6 +143,7 @@ rm -rf jars
 cd $INSTALLATION_LOCATION/dependencies
 wget -O proteins.jar https://github.com/JakubOrsula/mics-proteins/releases/download/"$PROTEINS_VERSION"/proteins.jar
 cp proteins.jar mics-proteins/ppp_codes/jars/proteins-1.0.jar
+cp proteins.jar mics-proteins/sequential_sketches/jars/proteins-1.0.jar
 
 
 # Download python solution
