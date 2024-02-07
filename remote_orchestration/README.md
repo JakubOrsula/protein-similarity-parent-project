@@ -21,8 +21,8 @@ also adjust the path in the systemd service.
 
 ```shell
 mkdir protein-search-deployment && cd protein-search-deployment
-wget -O install.sh "https://github.com/JakubOrsula/protein-similarity-parent-project/releases/download/$SOLUTION_VERSION/install.sh"
-chmod u+x install.sh
+wget -O install_latest.sh "https://raw.githubusercontent.com/sb-ncbr/protein-similarity-parent-project/master/remote_orchestration/install_latest.sh"
+chmod u+x install_latest.sh
 ./install_latest.sh
 ```
 
